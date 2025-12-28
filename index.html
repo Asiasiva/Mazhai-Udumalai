@@ -17,6 +17,7 @@
             font-family: 'Noto Sans Tamil', sans-serif;
             background-color: #f0fff4; 
             color: #166534; 
+            scroll-behavior: smooth;
         }
         .hero-background {
             background: linear-gradient(to bottom, #166534, #14532d);
@@ -43,7 +44,17 @@
         }
         .gallery-img:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+        /* Custom timeline style */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background-color: #facc15;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -55,8 +66,21 @@
         <p class="text-xl font-medium text-yellow-400">“வாராவாரம் ஆரவாரம்”</p>
     </header>
 
-    <!-- Stats Section with Counter Feel -->
-    <section class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto -mt-4">
+    <!-- 1. Countdown Timer Section -->
+    <section class="max-w-4xl mx-auto mt-6 px-4">
+        <div class="bg-white p-4 rounded-2xl shadow-md border-2 border-green-100 text-center">
+            <p class="text-sm font-bold text-green-700 uppercase mb-2">அடுத்த நிகழ்வு தொடங்க இன்னும்:</p>
+            <div id="countdown" class="flex justify-center space-x-4 text-green-900">
+                <div class="flex flex-col"><span id="days" class="text-3xl font-black">00</span><span class="text-xs">நாட்கள்</span></div>
+                <div class="flex flex-col"><span id="hours" class="text-3xl font-black">00</span><span class="text-xs">மணி</span></div>
+                <div class="flex flex-col"><span id="minutes" class="text-3xl font-black">00</span><span class="text-xs">நிமிடம்</span></div>
+                <div class="flex flex-col"><span id="seconds" class="text-3xl font-black">00</span><span class="text-xs">நொடி</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div class="stat-box p-6 rounded-2xl shadow-xl text-center border-b-4 border-yellow-600">
             <p class="text-xs font-bold mb-2 uppercase tracking-widest text-green-800 text-opacity-70">இதுவரையில் நடப்பட்ட</p>
             <p class="text-5xl font-black">66,796</p>
@@ -118,62 +142,114 @@
         </div>
     </section>
 
-    <!-- Photo Gallery with Real Image Tags -->
+    <!-- 7. Milestones/Timeline Section -->
+    <section class="px-4 max-w-4xl mx-auto my-16">
+        <h2 class="text-3xl font-black text-green-800 mb-10 text-center">எமது மைல்கற்கள்</h2>
+        <div class="border-l-4 border-green-200 ml-4 space-y-10">
+            <div class="relative pl-10 timeline-item">
+                <p class="text-yellow-600 font-bold">2021 - ஜூன்</p>
+                <h4 class="text-xl font-black">முதல் விதை</h4>
+                <p class="text-gray-600">மழை உடுமலை தனது முதல் பயணத்தை 10 தன்னார்வலர்களுடன் தொடங்கியது.</p>
+            </div>
+            <div class="relative pl-10 timeline-item">
+                <p class="text-yellow-600 font-bold">2023 - மார்ச்</p>
+                <h4 class="text-xl font-black">50,000 மரக்கன்றுகள்</h4>
+                <p class="text-gray-600">உடுமலையைச் சுற்றியுள்ள பகுதிகளில் 50 ஆயிரம் மரக்கன்றுகளை நட்டு சாதனை.</p>
+            </div>
+            <div class="relative pl-10 timeline-item">
+                <p class="text-yellow-600 font-bold">2025 - தற்போது</p>
+                <h4 class="text-xl font-black">ஒரு லட்சம் பனை இலக்கு</h4>
+                <p class="text-gray-600">பனை விதைகள் மூலம் நிலத்தடி நீர் மற்றும் மண்ணைப் பாதுகாக்க பெரும் முயற்சி.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
     <section class="px-4 max-w-4xl mx-auto my-12">
         <h2 class="text-2xl font-black text-green-800 mb-6 text-center">முந்தைய நிகழ்வுகள்</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- குறிப்பு: src="URL" என்பதில் உங்கள் உண்மையான படங்களின் முகவரியை மாற்றவும் -->
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=400" 
-                 alt="மரம் நடுதல் 1" 
-                 class="gallery-img" 
-                 onerror="this.src='https://via.placeholder.com/400x300?text=மழை+உடுமலை'">
-            
-            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=400" 
-                 alt="மரம் நடுதல் 2" 
-                 class="gallery-img"
-                 onerror="this.src='https://via.placeholder.com/400x300?text=மழை+உடுமலை'">
-            
-            <img src="https://images.unsplash.com/photo-1599148400620-8e1ff0bf28d8?auto=format&fit=crop&q=80&w=400" 
-                 alt="பனை விதை" 
-                 class="gallery-img"
-                 onerror="this.src='https://via.placeholder.com/400x300?text=மழை+உடுமலை'">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=400" alt="மரம் நடுதல் 1" class="gallery-img">
+            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=400" alt="மரம் நடுதல் 2" class="gallery-img">
+            <img src="https://images.unsplash.com/photo-1599148400620-8e1ff0bf28d8?auto=format&fit=crop&q=80&w=400" alt="பனை விதை" class="gallery-img">
         </div>
     </section>
 
-    <!-- Information & Mission Section -->
-    <section class="px-4 max-w-4xl mx-auto my-12">
-        <div class="flex items-center justify-center space-x-4 mb-6">
-            <div class="h-1 bg-green-200 flex-grow"></div>
-            <h2 class="text-3xl font-black text-green-800 whitespace-nowrap">எங்கள் பணி</h2>
-            <div class="h-1 bg-green-200 flex-grow"></div>
-        </div>
-        
-        <div class="bg-white p-8 rounded-3xl shadow-xl border border-green-100 leading-relaxed text-gray-700">
-            <p class="text-lg mb-4">
-                <span class="text-3xl text-green-600 font-serif font-bold">“</span>
-                பாதுகாக்கப்பட்ட காலி இடங்கள், கோழி பண்ணைகள் மற்றும் சொட்டுநீர் பாசனவசதி இருந்ததால் இலவசமாக மரக்கன்றுகள் நடவு செய்து தருகின்றோம்.
-            </p>
-            <p class="text-lg">
-                பசுமையான உலகத்தை உருவாக்க எங்களுடன் கைகோர்க்க அனைவரும் அன்புடன் அழைக்கப்படுகிறார்கள்.
-            </p>
+    <!-- 6. Testimonials Section -->
+    <section class="bg-green-800 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-black text-center mb-12">தன்னார்வலர் அனுபவங்கள்</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-green-700 p-6 rounded-2xl shadow-lg border-t-4 border-yellow-400">
+                    <p class="italic mb-4">"மழை உடுமலையோடு இணைந்தது என் வாழ்வின் சிறந்த அனுபவம். சுற்றுப்புற சூழலை மாற்ற முடியும் என்ற நம்பிக்கை கிடைத்துள்ளது."</p>
+                    <p class="font-bold text-yellow-300">- ராம்குமார், கல்லூரி மாணவர்</p>
+                </div>
+                <div class="bg-green-700 p-6 rounded-2xl shadow-lg border-t-4 border-yellow-400">
+                    <p class="italic mb-4">"ஒவ்வொரு வாரமும் ஞாயிற்றுக்கிழமை காலை நேரத்தை ஆக்கப்பூர்வமாக செலவிட ஒரு நல்ல தளம்."</p>
+                    <p class="font-bold text-yellow-300">- மீனா, ஆசிரியர்</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Share Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="window.open('whatsapp://send?text=மழை உடுமலை 178வது நிகழ்வில் பங்கேற்க வாருங்கள்! இடம்: திணைக்குளம்.')" 
-                class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition active:scale-95 flex items-center space-x-2">
-            <i data-lucide="share-2"></i>
-            <span class="font-bold hidden md:inline">பகிர்க</span>
-        </button>
-    </div>
+    <!-- 2. Volunteer Signup Form Section -->
+    <section id="join" class="px-4 max-w-2xl mx-auto my-16">
+        <div class="bg-white p-8 rounded-3xl shadow-2xl border-2 border-green-500">
+            <h2 class="text-3xl font-black text-green-800 mb-6 text-center">தன்னார்வலராக இணையுங்கள்</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold mb-1">பெயர்</label>
+                    <input type="text" placeholder="உங்கள் பெயர்" class="w-full p-3 rounded-xl border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-1">அலைபேசி எண்</label>
+                    <input type="tel" placeholder="உங்கள் மொபைல் எண்" class="w-full p-3 rounded-xl border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white font-black py-4 rounded-xl hover:bg-green-700 transition transform active:scale-95 shadow-lg">இப்போதே இணையுங்கள்</button>
+            </form>
+        </div>
+    </section>
 
-    <!-- Call to Action & Contact -->
-    <footer class="p-10 bg-green-900 text-white mt-16 text-center rounded-t-[3rem] border-t-8 border-yellow-400">
-        <h3 class="text-3xl md:text-4xl font-black mb-4 text-yellow-400 italic">பனை விதை வளர்ப்போம்! பசுமையை நாடுவோம்!!</h3>
+    <!-- 4. FAQ Section -->
+    <section class="px-4 max-w-4xl mx-auto my-16">
+        <h2 class="text-3xl font-black text-green-800 mb-8 text-center"></h2>
+        <div class="space-y-4">
+            <div class="bg-white p-5 rounded-2xl shadow border border-green-100">
+                <h4 class="font-black text-lg">யாரெல்லாம் இதில் கலந்து கொள்ளலாம்?</h4>
+                <p class="text-gray-600 mt-2">இயற்கை மீது ஆர்வம் கொண்ட அனைவரும் வயது வரம்பின்றி இதில் பங்கேற்கலாம்.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow border border-green-100">
+                <h4 class="font-black text-lg">பங்கேற்க கட்டணம் ஏதும் உண்டா?</h4>
+                <p class="text-gray-600 mt-2">இல்லை. இது ஒரு தன்னார்வ சேவை அமைப்பு. முற்றிலும் இலவசம்.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow border border-green-100">
+                <h4 class="font-black text-lg">எனது இடத்தில் மரம் வைக்க வேண்டுமா?</h4>
+                <p class="text-gray-600 mt-2">ஆம். சொட்டுநீர் வசதி மற்றும் பாதுகாப்பு உள்ள இடங்களில் நாங்கள் இலவசமாக மரக்கன்று நட்டுத் தருகிறோம்.</p>
+            </div>
+        </div>
+    </section>
 
-        <div class="my-8">
-            <p class="text-sm font-bold tracking-widest uppercase opacity-60 mb-4">தொடர்புக்கு:</p>
+    <!-- 8. Support Us Section -->
+    <section class="px-4 max-w-4xl mx-auto my-16">
+        <div class="bg-yellow-100 p-8 rounded-3xl border-2 border-dashed border-yellow-500 text-center">
+            <h2 class="text-2xl font-black mb-4 text-yellow-900">எங்கள் முயற்சிக்கு ஆதரவளியுங்கள்</h2>
+            <p class="text-gray-700 mb-6 text-lg">விதைகள், மரக்கன்றுகள் அல்லது மரம் நடும் கருவிகள் வழங்கி எம்மை ஊக்கப்படுத்தலாம்.</p>
+            <a href="tel:9865077103" class="inline-block bg-yellow-500 text-green-900 px-8 py-3 rounded-full font-black hover:bg-yellow-400 shadow-md"></a>
+        </div>
+    </section>
+
+    <!-- 5. Social Media & Footer -->
+    <footer class="p-10 bg-green-900 text-white text-center rounded-t-[3rem] border-t-8 border-yellow-400">
+        <h3 class="text-3xl font-black mb-6 text-yellow-400">பசுமையை நாடுவோம்!!</h3>
+
+        <div class="flex justify-center space-x-6 mb-8">
+            <a href="#" class="bg-green-800 p-3 rounded-full hover:bg-blue-600 transition"><i data-lucide="facebook"></i></a>
+            <a href="#" class="bg-green-800 p-3 rounded-full hover:bg-pink-600 transition"><i data-lucide="instagram"></i></a>
+            <a href="#" class="bg-green-800 p-3 rounded-full hover:bg-red-600 transition"><i data-lucide="youtube"></i></a>
+            <a href="#" class="bg-green-800 p-3 rounded-full hover:bg-green-500 transition"><i data-lucide="message-circle"></i></a>
+        </div>
+
+        <div class="mb-8">
+            <p class="text-sm font-bold uppercase opacity-60 mb-4 tracking-widest">தொடர்புக்கு:</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="tel:9865077103" class="bg-green-800 px-6 py-3 rounded-2xl font-black hover:bg-yellow-400 hover:text-green-900 transition flex items-center">
                     <i data-lucide="phone" class="w-4 h-4 mr-2"></i> 98650 77103
@@ -187,12 +263,41 @@
             </div>
         </div>
         
-        <p class="text-xs mt-10 text-gray-400 border-t border-green-800 pt-6">&copy; 2025 மழை உடுமலை | ஒரு தன்னார்வ பசுமைத் தளம்</p>
+        <p class="text-xs text-gray-400 pt-6">&copy; 2025 மழை உடுமலை | உடுமலை பசுமை முயற்சி</p>
     </footer>
+
+    <!-- Fixed WhatsApp Share -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="window.open('whatsapp://send?text=மழை உடுமலை 178வது நிகழ்வில் பங்கேற்க வாருங்கள்!')" 
+                class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition flex items-center">
+            <i data-lucide="share-2"></i>
+        </button>
+    </div>
 
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Countdown Logic
+        function updateCountdown() {
+            const targetDate = new Date("Nov 16, 2025 07:25:00").getTime();
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff > 0) {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = d.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>
