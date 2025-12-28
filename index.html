@@ -10,107 +10,189 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Custom styles using Noto Sans Tamil font */
         body {
             font-family: 'Noto Sans Tamil', sans-serif;
-            background-color: #f0fff4; /* Pale Mint Green */
-            color: #166534; /* Dark Green */
+            background-color: #f0fff4; 
+            color: #166534; 
         }
         .hero-background {
-            background-color: #d1fae5; /* Light Green for contrast */
+            background: linear-gradient(to bottom, #166534, #14532d);
         }
         .event-card {
-            background-color: #166534; /* Dark Green */
-            color: #ffffff; /* White text */
+            background-color: #166534; 
+            color: #ffffff; 
         }
         .stat-box {
-            background-color: #fef08a; /* Bright Yellow/Gold */
+            background-color: #fef08a; 
             color: #166534;
+            transition: transform 0.3s ease;
+        }
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header & Motto -->
-    <header class="text-center p-6 bg-green-900 shadow-lg">
-        <h1 class="text-4xl font-extrabold text-white tracking-widest">மழை உடுமலை</h1>
-        <p class="text-lg font-medium mt-1 text-yellow-400">வாராவாரம் ஆரவாரம்</p>
+    <header class="text-center p-8 hero-background shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-widest mb-2">மழை உடுமலை</h1>
+        <p class="text-xl font-medium text-yellow-400">“வாராவாரம் ஆரவாரம்”</p>
     </header>
 
-    <!-- Stats Section -->
-    <section class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto mt-6">
-        <div class="stat-box p-4 rounded-xl shadow-lg text-center">
-            <p class="text-sm font-semibold mb-2 uppercase">இதுவரையில் நடப்பட்ட</p>
-            <p class="text-5xl font-bold">66796</p>
-            <p class="text-xl font-medium mt-1">மரக்கன்றுகள்</p>
+    <!-- Stats Section with Counter Feel -->
+    <section class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto -mt-4">
+        <div class="stat-box p-6 rounded-2xl shadow-xl text-center border-b-4 border-yellow-600">
+            <p class="text-xs font-bold mb-2 uppercase tracking-widest text-green-800 text-opacity-70">இதுவரையில் நடப்பட்ட</p>
+            <p class="text-5xl font-black">66,796</p>
+            <p class="text-lg font-bold mt-1">மரக்கன்றுகள்</p>
         </div>
-        <div class="stat-box p-4 rounded-xl shadow-lg text-center">
-            <p class="text-sm font-semibold mb-2 uppercase">இதுவரையில் விதைத்த</p>
-            <p class="text-5xl font-bold">87000</p>
-            <p class="text-xl font-medium mt-1">பனை விதைகள்</p>
+        <div class="stat-box p-6 rounded-2xl shadow-xl text-center border-b-4 border-yellow-600">
+            <p class="text-xs font-bold mb-2 uppercase tracking-widest text-green-800 text-opacity-70">இதுவரையில் விதைத்த</p>
+            <p class="text-5xl font-black">87,000</p>
+            <p class="text-lg font-bold mt-1">பனை விதைகள்</p>
         </div>
     </section>
 
     <!-- Event Highlight Card -->
     <section class="p-4 max-w-3xl mx-auto my-8">
-        <div class="event-card p-6 rounded-2xl shadow-2xl border-4 border-yellow-400 text-center">
-            <!-- Event Title -->
+        <div class="event-card p-8 rounded-3xl shadow-2xl border-4 border-yellow-400 text-center relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 opacity-10 w-40 h-40 bg-white rounded-full"></div>
+            
             <h2 class="text-xl sm:text-2xl font-bold mb-2 text-yellow-300">மழை உடுமலையின் 158வது தொடர் வாரம்</h2>
-            <h3 class="text-3xl sm:text-4xl font-extrabold mb-6">178வது நிகழ்வு</h3>
+            <h3 class="text-4xl sm:text-5xl font-black mb-8">178வது நிகழ்வு</h3>
 
-            <div class="bg-white text-green-800 p-4 rounded-xl mb-6 shadow-inner">
-                <p class="text-lg font-semibold">இணைந்து நடத்துபவர்கள்:</p>
-                <p class="text-2xl font-bold mt-1">உடுமலை இன்னர் வீல் கிளப்</p>
+            <div class="bg-white text-green-900 p-5 rounded-2xl mb-8 shadow-inner border-l-8 border-yellow-500">
+                <p class="text-sm font-bold uppercase text-green-700">இணைந்து நடத்துபவர்கள்:</p>
+                <p class="text-2xl md:text-3xl font-black mt-1">உடுமலை இன்னர் வீல் கிளப்</p>
             </div>
 
-            <!-- Main Event Goal -->
-            <p class="text-xl font-semibold text-yellow-400">தொடர் நிகழ்வு:</p>
-            <p class="text-4xl font-extrabold mb-8">“ஒரு லட்சம் பனை விதைகள்”</p>
+            <div class="mb-10">
+                <p class="text-xl font-bold text-yellow-400 mb-2">தொடர் நிகழ்வு:</p>
+                <div class="inline-block px-6 py-2 bg-yellow-400 text-green-900 rounded-full font-black text-2xl md:text-3xl">
+                    “ஒரு லட்சம் பனை விதைகள்”
+                </div>
+            </div>
             
-            <!-- Details Block -->
-            <div class="space-y-4">
-                <div class="p-3 bg-green-700 rounded-lg">
-                    <p class="text-sm font-light">நாள் & கிழமை</p>
-                    <p class="text-2xl font-bold">16 நவம்பர் 2025, ஞாயிற்றுக்கிழமை</p>
+            <div class="grid grid-cols-1 gap-4 text-left max-w-md mx-auto">
+                <div class="flex items-center space-x-4 p-4 bg-green-800/50 rounded-xl">
+                    <i data-lucide="calendar" class="text-yellow-400"></i>
+                    <div>
+                        <p class="text-xs font-light opacity-80">நாள் & கிழமை</p>
+                        <p class="text-xl font-bold text-white">16 நவம்பர் 2025, ஞாயிறு</p>
+                    </div>
                 </div>
-                <div class="p-3 bg-green-700 rounded-lg">
-                    <p class="text-sm font-light">நேரம்</p>
-                    <p class="text-2xl font-bold">காலை 7:25 மணி</p>
+                <div class="flex items-center space-x-4 p-4 bg-green-800/50 rounded-xl">
+                    <i data-lucide="clock" class="text-yellow-400"></i>
+                    <div>
+                        <p class="text-xs font-light opacity-80">நேரம்</p>
+                        <p class="text-xl font-bold text-white">காலை 7:25 மணி</p>
+                    </div>
                 </div>
-                <div class="p-3 bg-green-700 rounded-lg">
-                    <p class="text-sm font-light">நிகழ்விடம்</p>
-                    <p class="text-2xl font-bold text-yellow-300">திணைக்குளம்</p>
+                <div class="flex items-center space-x-4 p-4 bg-green-800/50 rounded-xl">
+                    <i data-lucide="map-pin" class="text-yellow-400"></i>
+                    <div class="flex-grow">
+                        <p class="text-xs font-light opacity-80">நிகழ்விடம்</p>
+                        <p class="text-xl font-bold text-yellow-300">திணைக்குளம்</p>
+                    </div>
+                    <a href="https://maps.google.com/?q=Thinaikkulam+Udumalaipettai" target="_blank" class="bg-yellow-400 text-green-900 p-2 rounded-lg hover:bg-white transition">
+                        <i data-lucide="external-link" class="w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Information Section -->
-    <section class="p-4 max-w-4xl mx-auto my-8">
-        <h2 class="text-3xl font-bold text-center mb-4 text-green-800">எங்கள் பணி</h2>
-        <div class="bg-white p-6 rounded-xl shadow-xl border border-green-200">
-            <p class="text-lg leading-relaxed text-gray-700">
-                பாதுகாக்கப்பட்ட காலி இடங்கள், கோபி பண்ணைகள் மற்றும் சொட்டுநீர் பாசனவசதி இருந்ததால் இலவசமாக மரக்கன்றுகள் நடவு செய்து தருகின்றோம்.
-                பசுமையான உலகத்தை உருவாக்க எங்களுடன் கைகோர்க்க அனைவரும் அழைக்கப்படுகிறார்கள்.
+
+    <!-- Photo Gallery with Real Image Tags -->
+    <section class="px-4 max-w-4xl mx-auto my-12">
+        <h2 class="text-2xl font-black text-green-800 mb-6 text-center">முந்தைய நிகழ்வுகள்</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- குறிப்பு: src="URL" என்பதில் உங்கள் உண்மையான படங்களின் முகவரியை மாற்றவும் -->
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=400" 
+                 alt="மரம் நடுதல் 1" 
+                 class="gallery-img" 
+                 onerror="this.src='https://via.placeholder.com/400x300?text=மழை+உடுமலை'">
+            
+            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=400" 
+                 alt="மரம் நடுதல் 2" 
+                 class="gallery-img"
+                 onerror="this.src='https://via.placeholder.com/400x300?text=மழை+உடுமலை'">
+            
+            <img src="https://images.unsplash.com/photo-1599148400620-8e1ff0bf28d8?auto=format&fit=crop&q=80&w=400" 
+                 alt="பனை விதை" 
+                 class="gallery-img"
+                 onerror="this.src='https://via.placeholder.com/400x300?text=மழை+உடுமலை'">
+        </div>
+    </section>
+
+    <!-- Information & Mission Section -->
+    <section class="px-4 max-w-4xl mx-auto my-12">
+        <div class="flex items-center justify-center space-x-4 mb-6">
+            <div class="h-1 bg-green-200 flex-grow"></div>
+            <h2 class="text-3xl font-black text-green-800 whitespace-nowrap">எங்கள் பணி</h2>
+            <div class="h-1 bg-green-200 flex-grow"></div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-3xl shadow-xl border border-green-100 leading-relaxed text-gray-700">
+            <p class="text-lg mb-4">
+                <span class="text-3xl text-green-600 font-serif font-bold">“</span>
+                பாதுகாக்கப்பட்ட காலி இடங்கள், கோழி பண்ணைகள் மற்றும் சொட்டுநீர் பாசனவசதி இருந்ததால் இலவசமாக மரக்கன்றுகள் நடவு செய்து தருகின்றோம்.
+            </p>
+            <p class="text-lg">
+                பசுமையான உலகத்தை உருவாக்க எங்களுடன் கைகோர்க்க அனைவரும் அன்புடன் அழைக்கப்படுகிறார்கள்.
             </p>
         </div>
     </section>
 
-    <!-- Call to Action & Contact -->
-    <footer class="p-6 bg-green-900 text-white mt-10 text-center rounded-t-xl">
-        <h3 class="text-3xl font-extrabold mb-4 text-yellow-400">பனை விதை வளர்ப்போம்! பசுமையை நாடுவோம்!!</h3>
+    <!-- Share Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="window.open('whatsapp://send?text=மழை உடுமலை 178வது நிகழ்வில் பங்கேற்க வாருங்கள்! இடம்: திணைக்குளம்.')" 
+                class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition active:scale-95 flex items-center space-x-2">
+            <i data-lucide="share-2"></i>
+            <span class="font-bold hidden md:inline">பகிர்க</span>
+        </button>
+    </div>
 
-        <p class="text-xl font-semibold mt-6">தொடர்புக்கு:</p>
-        <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mt-2">
-            <a href="tel:9865077103" class="text-lg font-medium hover:text-green-300 transition duration-300">98650 77103</a>
-            <a href="tel:9578177929" class="text-lg font-medium hover:text-green-300 transition duration-300">95781 77929</a>
-            <a href="tel:9994342154" class="text-lg font-medium hover:text-green-300 transition duration-300">99943 42154</a>
+    <!-- Call to Action & Contact -->
+    <footer class="p-10 bg-green-900 text-white mt-16 text-center rounded-t-[3rem] border-t-8 border-yellow-400">
+        <h3 class="text-3xl md:text-4xl font-black mb-4 text-yellow-400 italic">பனை விதை வளர்ப்போம்! பசுமையை நாடுவோம்!!</h3>
+
+        <div class="my-8">
+            <p class="text-sm font-bold tracking-widest uppercase opacity-60 mb-4">தொடர்புக்கு:</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:9865077103" class="bg-green-800 px-6 py-3 rounded-2xl font-black hover:bg-yellow-400 hover:text-green-900 transition flex items-center">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i> 98650 77103
+                </a>
+                <a href="tel:9578177929" class="bg-green-800 px-6 py-3 rounded-2xl font-black hover:bg-yellow-400 hover:text-green-900 transition flex items-center">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i> 95781 77929
+                </a>
+                <a href="tel:9994342154" class="bg-green-800 px-6 py-3 rounded-2xl font-black hover:bg-yellow-400 hover:text-green-900 transition flex items-center">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i> 99943 42154
+                </a>
+            </div>
         </div>
         
-        <p class="text-sm mt-8 text-gray-400">&copy; 2025 மழை உடுமலை. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        <p class="text-xs mt-10 text-gray-400 border-t border-green-800 pt-6">&copy; 2025 மழை உடுமலை | ஒரு தன்னார்வ பசுமைத் தளம்</p>
     </footer>
 
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
-
